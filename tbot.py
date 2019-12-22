@@ -4,7 +4,6 @@ from telebot.types import Message
 import pyowm
 
 
-apihelper.proxy = {'https': 'socks5://179.43.157.119:1080'}
 #apihelper.proxy = {'https': 'socks5://54.37.18.209:58072'}
 bot = telebot.TeleBot("1037420963:AAH2MooU13r-LIZ5h5RWqyOPm9U5eNLE5qc")
 
@@ -36,8 +35,8 @@ def send_welcome(message):
 @bot.message_handler(content_types=['text'])
 def handle_text(message):
         if message.text == 'привет':
-                bot.send_message(message.chat.id, 'И тебе привет!\nЯ умею показывать температуру за окном, \
-                курс валют и поддерживать с тобой разговор.\nВыбери команду из меню или напиши мне что-нибудь с:')
+                bot.send_message(message.chat.id, 'И тебе привет!\nЯ умею показывать температуру за окном,' +
+                'курс валют и поддерживать с тобой разговор.\nВыбери команду из меню или напиши мне что-нибудь с:')
         elif message.text == 'пока':
                 bot.send_message(message.chat.id, 'Поки =*\nЗаходи ещё, позже у меня будет больше возможностей :з')
         else:
