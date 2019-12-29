@@ -29,7 +29,7 @@ def send_welcome(message):
 
 @bot.message_handler(commands=['курс_валют'])
 def send_welcome(message):
-        bot.send_message(message.from_user.id, "Курс валют на сегодня:\nДоллар = 62.84р.\nЕвро = 69.88р.")
+        bot.send_message(message.from_user.id, "Курс валют на сегодня:\nДоллар = 62.07р.\nЕвро = 69.36р.")
 
 
 @bot.message_handler(content_types=['text'])
