@@ -34,7 +34,7 @@ def send_welcome(message):
 
 @bot.message_handler(content_types=['text'])
 def handle_text(message):
-        if message.text == 'привет' OR message.text == 'Привет':
+        if message.text == 'привет' or message.text == 'Привет':
                 bot.send_message(message.chat.id, 'И тебе привет!\nЯ умею показывать температуру за окном,' +
                 'курс валют и поддерживать с тобой разговор.\nВыбери команду из меню или напиши мне что-нибудь с:')
         elif message.text == 'пока':
