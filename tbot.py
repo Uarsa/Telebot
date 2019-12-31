@@ -18,7 +18,7 @@ w = observation.get_weather()
 def handle_start(message):
         user_markup = telebot.types.ReplyKeyboardMarkup(True, True)
         user_markup.row('/start', '/погода', '/курс_валют')
-        bot.send_message(message.from_user.id, "Давай начнём с:\nНапиши мне \'привет\'", reply_markup=user_markup)
+        bot.send_message(message.from_user.id, "Давай начнём.\nНапиши мне \'привет\'", reply_markup=user_markup)
 
 
         
@@ -35,10 +35,10 @@ def send_welcome(message):
 @bot.message_handler(content_types=['text'])
 def handle_text(message):
         if message.text == 'привет' or message.text == 'Привет':
-                bot.send_message(message.chat.id, 'И тебе привет!\nЯ умею показывать температуру за окном,' +
-                'курс валют и поддерживать с тобой разговор.\nВыбери команду из меню или напиши мне что-нибудь с:')
+                bot.send_message(message.chat.id, 'И тебе привет!\nЯ умею показывать температуру за окном, ' +
+                'курс валют и отвечать непониманием на твои сообщения с:.\nВыбери команду из меню или напиши мне что-нибудь.')
         elif message.text == 'пока' or message.text == 'Пока':
-                bot.send_message(message.chat.id, 'Успехов в новом году!\nЗаходи ещё, позже у меня будет больше возможностей :з')
+                bot.send_message(message.chat.id, 'Успехов в новом году!\nЗаходи ещё, позже у меня будет больше возможностей с:')
         else:
                 echo_all(message)
 
