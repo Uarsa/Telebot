@@ -29,12 +29,12 @@ def send_welcome(message):
 
 @bot.message_handler(commands=['курс_валют'])
 def send_welcome(message):
-        bot.send_message(message.from_user.id, "Курс валют на сегодня:\nДоллар = 62.07р.\nЕвро = 69.36р.")
+        bot.send_message(message.from_user.id, "Курс валют на сегодня:\nДоллар = 62.17р.\nЕвро = 69.73р.")
 
 
 @bot.message_handler(content_types=['text'])
 def handle_text(message):
-        if message.text == 'привет':
+        if message.text == 'привет' OR message.text == 'Привет':
                 bot.send_message(message.chat.id, 'И тебе привет!\nЯ умею показывать температуру за окном,' +
                 'курс валют и поддерживать с тобой разговор.\nВыбери команду из меню или напиши мне что-нибудь с:')
         elif message.text == 'пока':
