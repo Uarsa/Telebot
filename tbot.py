@@ -37,8 +37,8 @@ def handle_text(message):
         if message.text == 'привет' or message.text == 'Привет':
                 bot.send_message(message.chat.id, 'И тебе привет!\nЯ умею показывать температуру за окном,' +
                 'курс валют и поддерживать с тобой разговор.\nВыбери команду из меню или напиши мне что-нибудь с:')
-        elif message.text == 'пока':
-                bot.send_message(message.chat.id, 'Поки =*\nЗаходи ещё, позже у меня будет больше возможностей :з')
+        elif message.text == 'пока' or message.text == 'Пока':
+                bot.send_message(message.chat.id, 'Успехов в новом году!\nЗаходи ещё, позже у меня будет больше возможностей :з')
         else:
                 echo_all(message)
 
