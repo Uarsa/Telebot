@@ -20,7 +20,7 @@ owm = pyowm.OWM('31c500a5d252323b3c085d510cacf4e4')
 @bot.message_handler(commands=['start'])
 def handle_start(message):
         user_markup = telebot.types.ReplyKeyboardMarkup(True, True)
-        user_markup.row('/start', '\u26c5\ufe0f', '\ud83d\udcb2', '\ud83c\udfb2')
+        user_markup.row('/start', '\u26c5\ufe0f', '\ud83d\udcb2', '\ud83c\udfb2', '/курс_валют')
         bot.send_message(message.from_user.id, "Давай начнём.\nНапиши мне \'привет\'", reply_markup=user_markup)
 
 
@@ -53,6 +53,8 @@ def handle_text(message):
                 observation = owm.weather_at_place(city)
                 w = observation.get_weather()
                 bot.send_message(message.from_user.id, "В Санкт-Петербурге сейчас " + str(w.get_temperature('celsius')['temp']))
+        elif message.text == '/курс_валют':
+                bot.send_message(message.from_user.id, "Курс валют на сегодня:\nДоллар = 62.05р.\nЕвро = 69.24р.")
         
         else:
                 echo_all(message)
