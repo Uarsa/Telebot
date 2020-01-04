@@ -52,7 +52,8 @@ def handle_text(message):
         elif message.text == '\u2601\ufe0f': #тучка без солнышка
                 bot.send_message(message.chat.id, 'Курс валют...')
         elif message.text == '\u26c5\ufe0f': #облачко с солнышком
-                bot.send_message(message.chat.id, "RANDOM!!!")
+                i = random.randint(0, 100)
+                bot.send_message(message.chat.id, str(i))
         elif message.text == '\u2600\ufe0f': #солнышко
                 city = 'Sankt-Peterburg'
                 observation = owm.weather_at_place(city)
