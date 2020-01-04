@@ -22,7 +22,7 @@ owm = pyowm.OWM('31c500a5d252323b3c085d510cacf4e4')
 def handle_start(message):
         user_markup = telebot.types.ReplyKeyboardMarkup(True, True)
         #user_markup.row('/start', '\u26c5\ufe0f', '\ud83d\udcb2', '\ud83c\udfb2')
-        user_markup.row('/start', '\u2600\ufe0f', '/валюта', '/rol')
+        user_markup.row('/start', '\u26c5\ufe0f', '/валюта', '/rol')
         bot.send_message(message.from_user.id, "Давай начнём.\nНапиши мне \'привет\'", reply_markup=user_markup)
 
 
@@ -54,7 +54,7 @@ def handle_text(message):
         elif message.text == '/rol': 
                 i = random.randint(0, 100)
                 bot.send_message(message.chat.id, str(i))
-        elif message.text == '\u2600\ufe0f':
+        elif message.text == '\u26c5\ufe0f':
                 city = 'Sankt-Peterburg'
                 observation = owm.weather_at_place(city)
                 w = observation.get_weather()
