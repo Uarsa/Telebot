@@ -38,11 +38,6 @@ def send_welcome(message):
 def send_welcome(message):
         bot.send_message(message.from_user.id, "Курс валют на сегодня:\nДоллар = 62.05р.\nЕвро = 69.24р.")
 '''  
-
-@bot.message_handler(content_types=['text'])
-def handle_text(message):
-        if message.text == '\ud83d\udcb2':
-                bot.send_message(message.chat.id, 'Курс валют на сегодня:\nДоллар = 62.05р.\nЕвро = 69.24р.')
                 
         
 
@@ -57,8 +52,11 @@ def handle_text(message):
                 observation = owm.weather_at_place(city)
                 w = observation.get_weather()
                 bot.send_message(message.from_user.id, "В Санкт-Петербурге сейчас " + str(w.get_temperature('celsius')['temp']))
-        #elif message.text == '\ud83d\udcb2':
-                #bot.send_message(message.from_user.id, "Курс валют на сегодня:\nДоллар = 62.05р.\nЕвро = 69.24р.")
+        elif message.text == '\ud83d\udcb2':
+                bot.send_message(message.from_user.id, "Курс валют на сегодня:\nДоллар = 62.05р.\nЕвро = 69.24р.")
+        elif message.text == '\ud83c\udfb2':
+                bot.send_message(message.chat.id, 'RANDOM!!!!!')
+        
         
         else:
                 echo_all(message)
