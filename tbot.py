@@ -21,7 +21,7 @@ owm = pyowm.OWM('31c500a5d252323b3c085d510cacf4e4')
 def handle_start(message):
         user_markup = telebot.types.ReplyKeyboardMarkup(True, True)
         #user_markup.row('/start', '\u26c5\ufe0f', '\ud83d\udcb2', '\ud83c\udfb2')
-        user_markup.row('/start', '\ud83d\udd25', '\ud83d\udcca', '\ud83c\udfb0')
+        user_markup.row('/start', '\u2601\ufe0f', '\ud83c\udfb1', '\ud83c\udf00')
         bot.send_message(message.from_user.id, "Давай начнём.\nНапиши мне \'привет\'", reply_markup=user_markup)
 
 
@@ -48,11 +48,11 @@ def handle_text(message):
                 bot.send_message(message.chat.id, 'И тебе привет, ' + message.from_user.first_name + '!' + '\nЯ умею показывать температуру за окном, курс валют и отвечать непониманием на твои сообщения)\nВыбери команду из меню или напиши мне что-нибудь.')
         elif message.text == 'пока' or message.text == 'Пока':
                 bot.send_message(message.chat.id, 'Успехов в новом году!\nЗаходи ещё, позже у меня будет больше возможностей с:')       
-        elif message.text == '\ud83d\udcca':
+        elif message.text == '\ud83c\udfb1':
                 bot.send_message(message.chat.id, 'Курс валют...')
-        elif message.text == '\ud83c\udfb0':
+        elif message.text == '\ud83c\udf00':
                 bot.send_message(message.from_user.id, "RANDOM!!!")
-        elif message.text == '\ud83d\udd25':
+        elif message.text == '\u2601\ufe0f':
                 city = 'Sankt-Peterburg'
                 observation = owm.weather_at_place(city)
                 w = observation.get_weather()
