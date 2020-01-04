@@ -49,9 +49,6 @@ def handle_text(message):
         elif message.text == 'пока' or message.text == 'Пока':
                 bot.send_message(message.chat.id, 'Успехов в новом году!\nЗаходи ещё, позже у меня будет больше возможностей с:')       
         elif message.text == '\u26c5\ufe0f':
-                city = 'Sankt-Peterburg'
-                observation = owm.weather_at_place(city)
-                w = observation.get_weather()
                 bot.send_message(message.from_user.id, "В Санкт-Петербурге сейчас RANDOM!!!")
         elif message.text == '\u2600\ufe0f':
                 city = 'Sankt-Peterburg'
