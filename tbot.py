@@ -9,9 +9,9 @@ bot = telebot.TeleBot("1037420963:AAH2MooU13r-LIZ5h5RWqyOPm9U5eNLE5qc")
 
 
 owm = pyowm.OWM('31c500a5d252323b3c085d510cacf4e4')
-city = 'Sankt-Peterburg'
-observation = owm.weather_at_place(city)
-w = observation.get_weather()
+#city = 'Sankt-Peterburg'
+#observation = owm.weather_at_place(city)
+#w = observation.get_weather()
 
 
 @bot.message_handler(commands=['start'])
@@ -25,6 +25,9 @@ def handle_start(message):
 
 @bot.message_handler(commands=['погода'])
 def send_welcome(message):
+        city = 'Sankt-Peterburg'
+        observation = owm.weather_at_place(city)
+        w = observation.get_weather()
         bot.send_message(message.from_user.id, "В Санкт-Петербурге сейчас " + str(w.get_temperature('celsius')['temp']))
 
 @bot.message_handler(commands=['курс_валют'])
