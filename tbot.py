@@ -32,13 +32,12 @@ def send_welcome(message):
         observation = owm.weather_at_place(city)
         w = observation.get_weather()
         bot.send_message(message.from_user.id, "В Санкт-Петербурге сейчас " + str(w.get_temperature('celsius')['temp']))
-'''
+
 
 @bot.message_handler(commands=['\ud83d\udcb2']) #exchange rates
 def send_welcome(message):
         bot.send_message(message.from_user.id, "Курс валют на сегодня:\nДоллар = 62.05р.\nЕвро = 69.24р.")
-
-        
+'''      
         
 
 @bot.message_handler(content_types=['text'])
@@ -52,6 +51,8 @@ def handle_text(message):
                 observation = owm.weather_at_place(city)
                 w = observation.get_weather()
                 bot.send_message(message.from_user.id, "В Санкт-Петербурге сейчас " + str(w.get_temperature('celsius')['temp']))
+        elif message.text == '\ud83d\udcb2':
+                bot.send_message(message.from_user.id, "Курс валют на сегодня:\nДоллар = 62.05р.\nЕвро = 69.24р.")
         else:
                 echo_all(message)
 
