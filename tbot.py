@@ -2,6 +2,7 @@ import telebot
 from telebot import apihelper
 from telebot.types import Message
 import pyowm
+import random
 
 
 #apihelper.proxy = {'https': 'socks5://54.37.18.209:58072'}
@@ -51,12 +52,12 @@ def handle_text(message):
         elif message.text == '\u2601\ufe0f': #тучка без солнышка
                 bot.send_message(message.chat.id, 'Курс валют...')
         elif message.text == '\u26c5\ufe0f': #облачко с солнышком
-                bot.send_message(message.from_user.id, "RANDOM!!!")
+                bot.send_message(message.chat.id, "RANDOM!!!")
         elif message.text == '\u2600\ufe0f': #солнышко
                 city = 'Sankt-Peterburg'
                 observation = owm.weather_at_place(city)
                 w = observation.get_weather()
-                bot.send_message(message.from_user.id, "В Санкт-Петербурге сейчас " + str(w.get_temperature('celsius')['temp']))
+                bot.send_message(message.chat.id, "В Санкт-Петербурге сейчас " + str(w.get_temperature('celsius')['temp']))
         else:
                 echo_all(message)
 
