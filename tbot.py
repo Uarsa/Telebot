@@ -22,7 +22,7 @@ owm = pyowm.OWM('31c500a5d252323b3c085d510cacf4e4')
 def handle_start(message):
         user_markup = telebot.types.ReplyKeyboardMarkup(True, True)
         #user_markup.row('/start', '\u26c5\ufe0f', '\ud83d\udcb2', '\ud83c\udfb2')
-        user_markup.row('/start', '\u2600\ufe0f', '\u26c5\ufe0f', '\u2601\ufe0f')
+        user_markup.row('/start', '\u2600\ufe0f', '/валюта', '/rol')
         bot.send_message(message.from_user.id, "Давай начнём.\nНапиши мне \'привет\'", reply_markup=user_markup)
 
 
@@ -49,12 +49,12 @@ def handle_text(message):
                 bot.send_message(message.chat.id, 'И тебе привет, ' + message.from_user.first_name + '!' + '\nЯ умею показывать температуру за окном, курс валют и отвечать непониманием на твои сообщения)\nВыбери команду из меню или напиши мне что-нибудь.')
         elif message.text == 'пока' or message.text == 'Пока':
                 bot.send_message(message.chat.id, 'Успехов в новом году!\nЗаходи ещё, позже у меня будет больше возможностей с:')       
-        elif message.text == '\u2601\ufe0f': #тучка без солнышка
-                bot.send_message(message.chat.id, 'Курс валют...')
-        elif message.text == '\u26c5\ufe0f': #облачко с солнышком
+        elif message.text == '/валюта':
+                bot.send_message(message.chat.id, 'Курс валют на сегодня:\nДоллар = 62.05р.\nЕвро = 69.24р.')
+        elif message.text == '/rol': 
                 i = random.randint(0, 100)
                 bot.send_message(message.chat.id, str(i))
-        elif message.text == '\u2600\ufe0f': #солнышко
+        elif message.text == '\u2600\ufe0f':
                 city = 'Sankt-Peterburg'
                 observation = owm.weather_at_place(city)
                 w = observation.get_weather()
