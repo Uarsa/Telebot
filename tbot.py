@@ -23,14 +23,14 @@ def handle_start(message):
 
         
 
-@bot.message_handler(commands=['\u26c5\ufe0f']) #weather
+@bot.message_handler(commands=['/\u26c5\ufe0f']) #weather
 def send_welcome(message):
         city = 'Sankt-Peterburg'
         observation = owm.weather_at_place(city)
         w = observation.get_weather()
         bot.send_message(message.from_user.id, "В Санкт-Петербурге сейчас " + str(w.get_temperature('celsius')['temp']))
 
-@bot.message_handler(commands=['\ud83d\udcb2']) #exchange rates
+@bot.message_handler(commands=['/\ud83d\udcb2']) #exchange rates
 def send_welcome(message):
         bot.send_message(message.from_user.id, "Курс валют на сегодня:\nДоллар = 62.05р.\nЕвро = 69.24р.")
 
