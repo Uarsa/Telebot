@@ -17,7 +17,7 @@ owm = pyowm.OWM('31c500a5d252323b3c085d510cacf4e4')
 @bot.message_handler(commands=['start'])
 def handle_start(message):
         user_markup = telebot.types.ReplyKeyboardMarkup(True, True)
-        user_markup.row('/start', '/погода', '/курс_валют', '/\ud83c\udfb2')
+        user_markup.row('/start', '/погода', '/курс_валют', '\ud83c\udfb2')
         bot.send_message(message.from_user.id, "Давай начнём.\nНапиши мне \'привет\'", reply_markup=user_markup)
 
 
