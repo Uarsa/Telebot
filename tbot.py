@@ -46,13 +46,14 @@ def handle_text(message):
                 bot.send_message(message.chat.id, 'И тебе привет, ' + message.from_user.first_name + '!' + '\nЯ умею показывать температуру за окном, курс валют и отвечать непониманием на твои сообщения)\nВыбери команду из меню или напиши мне что-нибудь.')
         elif message.text == 'пока' or message.text == 'Пока':
                 bot.send_message(message.chat.id, 'Успехов в новом году!\nЗаходи ещё, позже у меня будет больше возможностей с:')
+        elif message.text == '\ud83d\udcb2':
+                bot.send_message(message.chat.id, "Курс валют на сегодня:\nДоллар = 62.05р.\nЕвро = 69.24р.")       
         elif message.text == '\u26c5\ufe0f':
                 city = 'Sankt-Peterburg'
                 observation = owm.weather_at_place(city)
                 w = observation.get_weather()
                 bot.send_message(message.from_user.id, "В Санкт-Петербурге сейчас " + str(w.get_temperature('celsius')['temp']))
-        elif message.text == '\ud83d\udcb2':
-                bot.send_message(message.from_user.id, "Курс валют на сегодня:\nДоллар = 62.05р.\nЕвро = 69.24р.")
+        
         else:
                 echo_all(message)
 
