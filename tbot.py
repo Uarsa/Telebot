@@ -46,7 +46,7 @@ def handle_text(message):
         if message.text == 'привет' or message.text == 'Привет':
                 bot.send_message(message.chat.id, 'И тебе привет, ' + message.from_user.first_name + '!' + '\nЯ умею показывать температуру за окном, курс валют и отвечать непониманием на твои сообщения)\nВыбери команду из меню или напиши мне что-нибудь.')
         elif message.text == '\ud83c\udfb2':
-                bot.send_message(message.chat.id, 'RANDOM!!!!!')
+                bot.send_message(message.from_user.id, "RANDOM!!!!!")
         elif message.text == 'пока' or message.text == 'Пока':
                 bot.send_message(message.chat.id, 'Успехов в новом году!\nЗаходи ещё, позже у меня будет больше возможностей с:')       
         elif message.text == '\u26c5\ufe0f':
