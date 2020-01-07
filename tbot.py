@@ -38,7 +38,7 @@ def send_welcome(message):
 
 @bot.message_handler(commands=['\ud83d\udcb2']) #exchange rates
 def send_welcome(message):
-        bot.send_message(message.from_user.id, "Курс валют на сегодня:\nДоллар = 62.03р.\nЕвро = 69.45р.")
+        bot.send_message(message.from_user.id, "Курс валют на сегодня:\nДоллар = 62.04р.\nЕвро = 69.31р.")
 '''  
                 
         
