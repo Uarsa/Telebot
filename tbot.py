@@ -50,7 +50,7 @@ def handle_text(message):
         elif message.text == 'пока' or message.text == 'Пока':
                 bot.send_message(message.chat.id, 'Успехов в новом году!\nЗаходи ещё, позже у меня будет больше возможностей с:')       
         elif message.text == '/валюта':
-                bot.send_message(message.chat.id, 'Курс валют на сегодня:\nДоллар = 61.13р.\nЕвро = 67.97р.')
+                bot.send_message(message.chat.id, 'Курс валют на сегодня:\nДоллар = 61.24р.\nЕвро = 68.05р.')
         elif message.text == '/rol': 
                 i = random.randint(0, 100)
                 bot.send_message(message.chat.id, str(i))
