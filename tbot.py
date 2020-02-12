@@ -58,13 +58,9 @@ def handle_text(message):
                 main_text = source.text
                 soup = BeautifulSoup(main_text, 'html.parser')
                 table = soup.findAll("div", {"class":"currency-table__large-text"})
-
-                print("USD = " + table[0].text)
-                print("EUR = " + table[3].text)
-                
+                #print("USD = " + table[0].text)
+                #print("EUR = " + table[3].text)
                 bot.send_message(message.chat.id, 'Курс валют на сегодня:\nUSD = ' + table[0].text + 'р.' + '\nEUR = ' +  table[3].text + 'р.')
-                
-                
         elif message.text == '/rol': 
                 i = random.randint(0, 100)
                 bot.send_message(message.chat.id, str(i))
