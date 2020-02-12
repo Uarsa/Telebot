@@ -3,6 +3,8 @@ from telebot import apihelper
 from telebot.types import Message
 import pyowm
 import random
+import requests
+from bs4 import BeautifulSoup
 
 
 #apihelper.proxy = {'https': 'socks5://54.37.18.209:58072'}
@@ -15,6 +17,8 @@ owm = pyowm.OWM('31c500a5d252323b3c085d510cacf4e4')
 #w = observation.get_weather()
 
 
+#url for parsing:
+url = "https://www.banki.ru/products/currency/cash/sankt-peterburg/"
 
 
 
@@ -50,7 +54,17 @@ def handle_text(message):
         elif message.text == 'пока' or message.text == 'Пока':
                 bot.send_message(message.chat.id, 'Успехов в новом году!\nЗаходи ещё, позже у меня будет больше возможностей с:')       
         elif message.text == '/валюта':
-                bot.send_message(message.chat.id, 'Курс валют на сегодня:\nДоллар = 61.32р.\nЕвро = 68.03р.')
+                source = requests.get(url)
+                main_text = source.text
+                soup = BeautifulSoup(main_text, 'html.parser')
+                table = soup.findAll("div", {"class":"currency-table__large-text"})
+
+                print("USD = " + table[0].text)
+                print("EUR = " + table[3].text)
+                
+                bot.send_message(message.chat.id, 'Курс валют на сегодня:\nUSD = ' + table[0].text + 'р.' + '\nEUR = ' +  table[3].text + 'р.')
+                
+                
         elif message.text == '/rol': 
                 i = random.randint(0, 100)
                 bot.send_message(message.chat.id, str(i))
