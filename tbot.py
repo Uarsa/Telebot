@@ -4,7 +4,7 @@ from telebot.types import Message
 import pyowm
 import random
 import requests
-from beautifulsoup4 import BeautifulSoup
+from bs4 import BeautifulSoup
 
 
 #apihelper.proxy = {'https': 'socks5://54.37.18.209:58072'}
