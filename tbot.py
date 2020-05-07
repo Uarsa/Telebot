@@ -1,5 +1,5 @@
 import telebot
-#from telebot import apihelper
+from telebot import apihelper
 from telebot.types import Message
 import pyowm
 import random
